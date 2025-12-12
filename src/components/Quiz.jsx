@@ -24,9 +24,6 @@ function Quiz() {
         { id: 'B', label: 'Flipper' },
         { id: 'C', label: 'Land Investor' },
         { id: 'D', label: 'Builder / Developer' },
-        { id: 'E', label: 'Agent (Investor-Focused)' },
-        { id: 'F', label: 'Buy-and-Hold Investor' },
-        { id: 'G', label: 'Other' }
       ]
     },
     {
@@ -57,7 +54,6 @@ function Quiz() {
         { id: 'B', label: 'Multi-Family Properties' },
         { id: 'C', label: 'Commercial Real Estate' },
         { id: 'D', label: 'Land Development' },
-        { id: 'E', label: 'Mixed Portfolio' }
       ]
     },
     {
@@ -67,8 +63,7 @@ function Quiz() {
         { id: 'A', label: 'Under $50,000' },
         { id: 'B', label: '$50,000 - $200,000' },
         { id: 'C', label: '$200,000 - $500,000' },
-        { id: 'D', label: '$500,000 - $1,000,000' },
-        { id: 'E', label: 'Over $1,000,000' }
+        { id: 'D', label: '$500,000 - $1,000,000' },    
       ]
     },
     {
@@ -307,7 +302,7 @@ function Quiz() {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center p-8 relative overflow-hidden grid grid-cols-5"
       style={{
         backgroundImage: `url(${BgImg})`,
         backgroundSize: 'cover',
@@ -398,7 +393,7 @@ function Quiz() {
       </div>
 
       {/* Main Quiz Card */}
-      <div className="relative z-10 w-full max-w-5xl">
+      <div className="relative z-10 w-full max-w-5xl col-span-4">
         <div 
           id="quiz-card"
           className="relative rounded-3xl shadow-2xl border border-purple-500/30 overflow-hidden animate-fade-in"
@@ -436,21 +431,21 @@ function Quiz() {
           {/* Content Container */}
           <div className="relative z-10 flex flex-col lg:flex-row">
             {/* Left Side - Questions */}
-            <div className="flex-1 p-8 md:p-12 lg:p-14" key={currentQuestion}>
+            <div  className="flex-1 p-4 md:p-5 lg:p-6" key={currentQuestion}>
               {/* Icon and Question */}
-              <div className="mb-8">
+              <div className="mb-4">
                 <div className="flex items-start gap-5 mb-6">
                   <div className="bg-cyan-400/20 p-3.5 rounded-2xl flex-shrink-0 animate-icon-bounce">
                     <User className="w-9 h-9 text-cyan-400" strokeWidth={1.5} />
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-tight pt-2 animate-slide-in-right">
+                  <h2 className="text-2xl md:text-3xl lg:text-3xl w-full font-light text-white leading-tight pt-2 animate-slide-in-right">
                     {questions[currentQuestion].question}
                   </h2>
                 </div>
               </div>
 
               {/* Options */}
-              <div className="space-y-3 mb-8">
+              <div className="space-y-2 mb-4">
                 {questions[currentQuestion].options.map((option, index) => (
                   <button
                     key={option.id}
@@ -556,7 +551,7 @@ function Quiz() {
             </div>
 
             {/* Right Side - House Image */}
-            <div className="hidden lg:block lg:w-1/2 relative min-h-[600px]">
+            <div className="hidden lg:block lg:w-1/2 relative">
               <div 
                 className="absolute inset-0 flex items-center justify-center"
                 style={{
@@ -569,7 +564,7 @@ function Quiz() {
                   alt="House" 
                   className="w-full h-full object-cover"
                   style={{
-                    maxHeight: '90%',
+                    // maxHeight: '90%',
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.5))'
                   }}
                 />
